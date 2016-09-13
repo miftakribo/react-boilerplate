@@ -1,12 +1,14 @@
 const express = require('express');
 const app = express();
 
-app.use(express.static(__dirname + '/app'));
+app.use(express.static(__dirname + '/../app'));
 
 app.get('*', function(req, res){
-  res.send('hello world');
+  res.send(__dirname);
 });
 
-app.listen(3000);
+const port= 3000;
+
+app.listen(port);
 
 console.log('running on port 3000');
