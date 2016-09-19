@@ -4,7 +4,7 @@
   "description": "just another react boilerplate",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack/webpack.dev.babel.js --progress --colors --watch",
+    "build": "webpack --config webpack/webpack.dev.babel.js --progress --colors",
     "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,6 +26,7 @@
   "dependencies": {
     "express": "^4.14.0",
     "react": "^15.3.1",
-    "react-dom": "^15.3.1"
+    "react-dom": "^15.3.1",
+    "react-router": "^2.8.1"
   }
 }
