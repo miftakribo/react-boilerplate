@@ -4,23 +4,23 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
-  devtool: debug ? 'inline-sourcemap' : null,
-  entry: './app/app.js',
+  devtool: debug ? 'cheap-module-eval-source-map' : null,
+  entry: [
+    'webpack-hot-middleware/client',
+    './app/app.js'
+  ],
   output: {
     // path: debug ?  __dirname + '/app' : __dirname + '/dist',
-    path: __dirname + '/app',
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'app'),
+    filename: 'bundle.js',
+    publicPath: '/lib/'
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react', 'stage-0'],
-          plugins: ['react-html-attrs', 'transform-decorators-legacy', 'transform-class-properties']
-        }
+        exclude: /node_modules/
       }, {
         test: /\.css$/,
         loader: "style-loader!css-loader?importLoaders=1",
@@ -38,8 +38,8 @@ module.exports = {
     historyApiFallback: debug ? true : false
   },
   plugins: debug ? [
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin()
   ] : [
     new webpack.DefinePlugin({
