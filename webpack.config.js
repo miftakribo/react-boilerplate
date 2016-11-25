@@ -6,7 +6,8 @@ module.exports = {
   context: __dirname,
   devtool: debug ? 'cheap-module-eval-source-map' : null,
   entry: [
-    'webpack-hot-middleware/client',
+    debug ? 'webpack-dev-server/client?http://0.0.0.0:3000' : null, // WebpackDevServer host and port
+    debug ? 'webpack/hot/only-dev-server' : null, // "only" prevents reload on syntax errors
     './app/app.js'
   ],
   output: {
