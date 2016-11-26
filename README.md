@@ -3,17 +3,17 @@ React boilerplate
 
 The minimal stater-kit react application including dev environment with hot reload plugin to enable live-editing React Component and also including production environment with minified file.
 
-### Usage
->## Install
+## Usage
+>### Install
 > npm Install
->## run development
+>### run development
 > npm run dev
->## build
+>### build
 > npm run build
->## production
+>### production
 > npm run prod
 
-### Dependencies
+## Dependencies
 - react
 - react-dom
 - redux
@@ -21,7 +21,7 @@ The minimal stater-kit react application including dev environment with hot relo
 - react-router-redux
 - redux-promise-middleware
 - redux-thunk
-### devDependencies
+## devDependencies
 - babel-cli
 - babel-core
 - babel-loader
