@@ -1,6 +1,6 @@
 import React from 'react';
 
-import H3 from '../../components/H3';
+import H3 from 'components/H3';
 
 function About(props){
   const name='About us';

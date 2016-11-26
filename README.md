@@ -16,11 +16,7 @@ The minimal stater-kit react application including dev environment with hot relo
 ## Dependencies
 - react
 - react-dom
-- redux
 - react-router
-- react-router-redux
-- redux-promise-middleware
-- redux-thunk
 
 ## devDependencies
 - babel-cli

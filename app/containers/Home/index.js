@@ -11,12 +11,6 @@ export default class Home extends Component {
         name: 'sam'
       }
   }
-
-  componentWillMount(){
-  }
-  componentDidMount(){
-    console.log('hello bob')
-  }
   render() {
     return(
       <div>

@@ -11,7 +11,6 @@ module.exports = {
     './app/app.js'
   ],
   output: {
-    // path: debug ?  __dirname + '/app' : __dirname + '/dist',
     path: path.join(__dirname, 'app'),
     filename: 'bundle.js',
     publicPath: '/lib/'
@@ -24,9 +23,7 @@ module.exports = {
         exclude: /node_modules/
       }, {
         test: /\.css$/,
-        loader: "style-loader!css-loader?importLoaders=1",
-        // loaders: ["style-loader","css-loader"],
-        // include: path.join(__dirname, "app")
+        loader: "style-loader!css-loader?importLoaders=1"
       }, {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
         loader: "url-loader?limit=100000"
@@ -39,10 +36,12 @@ module.exports = {
     historyApiFallback: debug ? true : false
   },
   plugins: debug ? [
+    // development emv plugins
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin()
   ] : [
+    // production env plugin
     new webpack.DefinePlugin({
       "process.env": {
          NODE_ENV: JSON.stringify("production")
