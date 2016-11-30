@@ -1,17 +1,14 @@
 const debug = process.env.NODE_ENV !== "production";
 const webpack = require('webpack');
 const path = require('path');
+const entries = debug ? ['webpack-dev-server/client?http://0.0.0.0:3000', 'webpack/hot/only-dev-server', './app/app.js'] : ['./app/app.js'];
 
 module.exports = {
   context: __dirname,
   devtool: debug ? 'cheap-module-eval-source-map' : null,
-  entry: [
-    debug ? 'webpack-dev-server/client?http://0.0.0.0:3000' : null, // WebpackDevServer host and port
-    debug ? 'webpack/hot/only-dev-server' : null, // "only" prevents reload on syntax errors
-    './app/app.js'
-  ],
+  entry: entries,
   output: {
-    path: path.join(__dirname, 'app'),
+    path: path.join(__dirname, 'app/lib/'),
     filename: 'bundle.js',
     publicPath: '/lib/'
   },
