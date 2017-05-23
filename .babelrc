@@ -10,12 +10,11 @@
         }]
       }],
         "react-html-attrs",
-        "transform-decorators-legacy",
-        "transform-class-properties"
+        "transform-decorators-legacy"
       ]
     },
     "production": {
-        "plugins": ["react-html-attrs", "transform-decorators-legacy", "transform-class-properties"]
+        "plugins": ["react-html-attrs", "transform-decorators-legacy"]
     }
   }
 }
