@@ -5,7 +5,7 @@ import Footer from './index';
 
 describe('Component: Footer', () => {
   const wrapper = shallow(<Footer />);
-  it('render <Footer /> Component', () => {
+  it('should render without exploding', () => {
     expect(wrapper.length).toEqual(1);
   })
 })
