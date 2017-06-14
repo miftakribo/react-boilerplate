@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import { Link } from 'react-router';
+import { Link } from 'react-router'
 
-import H3 from 'components/H3';
+import H3 from 'components/H3'
 
 export default class Home extends Component {
   constructor(props){
-      super(props);
+      super(props)
       this.state = {
         name: 'sam'
       }
