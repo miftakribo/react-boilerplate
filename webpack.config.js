@@ -50,7 +50,10 @@ module.exports = {
       mangle: false,
       sourcemap: false,
       compress:{
-        warnings: true
+        'screw_ie8': true,
+        'warnings': false,
+        'unused': true,
+        'dead_code': true,
       }
     })
   ],
