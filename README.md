@@ -14,7 +14,7 @@ The minimal stater-kit react application including dev environment with hot relo
 > npm run prod
 
 ## Folder Structure
->app/
->  components/ -> dumb component
->  constants/
->  containers/ -> smart component
+- app
+  - components -> dumb component
+  - constants
+  - containers -> smart component
