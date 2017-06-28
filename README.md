@@ -3,6 +3,9 @@ React boilerplate
 
 The minimal stater-kit react application including dev environment with hot reload plugin to enable live-editing React Component and also including production environment with minified file.
 
+## Feature
+- webpack v3.0.0
+
 ## Usage
 >### Install
 > npm Install
