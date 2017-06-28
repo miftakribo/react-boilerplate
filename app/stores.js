@@ -5,7 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import rootReducer from './reducers'
 
-export default function configureStore(initialState = {}, history) {
+export default function configureStore(/*initialState = {}, history*/) {
   const middleware = applyMiddleware(
     promise(),
     thunk
@@ -15,5 +15,5 @@ export default function configureStore(initialState = {}, history) {
     composeWithDevTools(middleware)
   )
 
-  return store;
+  return store
 }

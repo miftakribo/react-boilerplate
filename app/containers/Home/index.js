@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 
-import { Link } from 'react-router'
+// import { Link } from 'react-router'
 
 import H3 from 'components/H3'
 
 export default class Home extends Component {
   constructor(props){
-      super(props)
-      this.state = {
-        name: 'sam'
-      }
+    super(props)
+    this.state = {
+      name: 'sam'
+    }
   }
   render() {
     return(
@@ -17,6 +17,6 @@ export default class Home extends Component {
         <H3>HOME</H3>
         <p>hello this is {this.state.name}</p>
       </div>
-    );
+    )
   }
 }
