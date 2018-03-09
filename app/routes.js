@@ -1,12 +1,18 @@
 import React from 'react'
-import { Route, IndexRoute } from 'react-router'
+import { Switch, Route } from 'react-router-dom'
 import Home from './containers/Home'
 import About from './containers/About'
 import Layout from './containers/Layout'
 
-export default(
-  <Route path='/' component={Layout}>
-    <IndexRoute component={Home}></IndexRoute>
-    <Route path='about' name='about' component={About}></Route>
-  </Route>
-)
+function Routes() {
+	return (
+	  <Layout>
+	  	<Switch>
+		    <Route exact  path="/" component={Home}></Route>
+		    <Route path='about' name='about' component={About}></Route>
+		  </Switch>
+	  </Layout>
+	)
+}
+
+export default Routes
