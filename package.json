@@ -5,9 +5,10 @@
   "main": "app.js",
   "scripts": {
     "dev": "node server",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build": "rm -rf dist/ && cross-env NODE_ENV=production webpack --config webpack.config.js",
     "prod": "cross-env NODE_ENV=production node server",
-    "test": "mocha app/**/test.js"
+    "test": "mocha app/**/test.js",
+    "delete_dist": "rm -rf dist/"
   },
   "keywords": [
     "react",
@@ -24,7 +25,7 @@
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.6.0",
-    "redux-promise-middleware": "^4.3.0",
+    "redux-promise-middleware": "^5.0.0",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {

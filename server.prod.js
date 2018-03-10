@@ -6,9 +6,9 @@ app.use(compression());
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({extended:true}));
 
-app.use('/', express.static(__dirname + '/app'))
+app.use('/', express.static(__dirname + '/dist'))
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/app/index.html')
+  res.sendFile(__dirname + '/dist/index.html')
 })
 
 app.get('*', function(req, res){
