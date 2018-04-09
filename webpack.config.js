@@ -2,17 +2,36 @@ const debug = process.env.NODE_ENV !== "production";
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 var DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
-const path = require('path');
-const entries = debug ? { 'app': ['webpack-dev-server/client?http://0.0.0.0:3000', 'webpack/hot/dev-server', 'react-hot-loader/patch', './app/app.js'] } : { 'app': ['./app/app.js'] };
+const path = require('path')
+
+const vendor = [
+  'react',
+  'react-redux',
+  'react-dom',
+  'react-router-dom',
+  'react-router-redux',
+  'redux',
+  'redux-thunk',
+  'redux-promise-middleware'
+]
+
+const entries = debug ? { 
+  'app': ['webpack-dev-server/client?http://0.0.0.0:3000', 'webpack/hot/dev-server', 'react-hot-loader/patch', './app/app.js'],
+  'vendor': vendor
+} : { 
+  'app': ['./app/app.js'],
+  'vendor': vendor
+};
 
 module.exports = {
   context: __dirname,
-  devtool: debug ? 'cheap-module-eval-source-map' : 'cheap-module-source-map',
+  devtool: debug ? 'cheap-module-eval-source-map' : 'eval',
   entry: entries,
   output: {
     path: path.resolve(__dirname, debug ? 'app/' : 'dist/'),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   module: {
     rules: [
@@ -68,21 +87,23 @@ module.exports = {
          NODE_ENV: JSON.stringify("production")
        }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      mangle: true,
-      sourcemap: false,
-      compress:{
-        'screw_ie8': true,
-        'warnings': false,
-        'unused': true,
-        'dead_code': true,
-        'pure_getters': true,
-        'unsafe': true,
-        'unsafe_comps': true,
-      },
-      output: {
-        comments: false,
-      },
+    new UglifyJsPlugin({
+      uglifyOptions: {
+        mangle: true,
+        sourcemap: true,
+        compress:{
+          'ie8': true,
+          'warnings': false,
+          'unused': true,
+          'dead_code': true,
+          'pure_getters': true,
+          'unsafe': true,
+          'unsafe_comps': true,
+        },
+        output: {
+          comments: false,
+        }
+      }
     })
   ],
   resolve: {
